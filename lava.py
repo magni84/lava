@@ -69,7 +69,7 @@ class Lava:
             for k in range(self.L):
                 for j in range(self.n_gamma):
                     alpha = (eta + T[j,j]*self.Z[i,j]**2 
-                             + 2*zeta[j])
+                             + 2*zeta[j]*self.Z[i,j])
                     g = zeta[j] + T[j,j]*self.Z[i,j]
                     w = np.sqrt(self.Psi['gamma_gamma'][j,j]/self.n)
 
@@ -80,6 +80,12 @@ class Lava:
                                        - w/(T[j,j]*math.sqrt(T[j,j]-w**2))
                                        * math.sqrt(alpha*T[j,j]-g**2) ))
                         except ValueError:
+                            #TODO This can only happen  
+                            # due to numerical round-off errors.
+                            # It should be z_new = 0 in this case,
+                            # but leave the print here so we can see if
+                            # it happens.
+                            print('TODO: Will this ever be a problem?')
                             z_new = 0
                     else:
                         z_new = 0
