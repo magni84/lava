@@ -157,7 +157,7 @@ class LavaLaplace(Lava):
             for k in range(D):
                 P[c] *= np.sin( np.pi * j_vec[k] * \
                                (x[k] + self.L_vec[k] )/(2*self.L_vec[k])) / \
-                        np.sqrt(self.L_vec[k])
+                                np.sqrt(self.L_vec[k])
 
             j_vec[0] = j_vec[0] + 1
             if D>1:
@@ -183,7 +183,3 @@ class LavaLaplace(Lava):
 
         self.phi = oldphi
         return y
-
-
-
-

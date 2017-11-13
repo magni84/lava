@@ -32,4 +32,3 @@ Phi = np.empty( (estimate.n_phi, N))
 for t in range(N):
     estimate.step(Y[:,t], U[:,t])
     Phi[:, t] = estimate.phi
-
