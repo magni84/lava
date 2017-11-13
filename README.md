@@ -9,5 +9,5 @@ estimate.Z
 
 To simulate the identified system use
 ```python
-estimate.simulate(U)
+Y_sim = estimate.simulate(U)
 ```
