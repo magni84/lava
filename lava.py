@@ -57,9 +57,9 @@ class Lava:
         self.Theta_bar += np.outer(y - self.Theta_bar@phi,phi)@self.P
 
         # Upe esties of Z
-        T = self.Psi['gamma_gamma'] - self.Psi['phi_gamma'].T@self.H - \
-                self.H.T@self.Psi['phi_gamma'] +\
-                self.H.T@self.Psi['phi_phi']@self.H
+        T = (self.Psi['gamma_gamma'] - self.Psi['phi_gamma'].T@self.H 
+             - self.H.T@self.Psi['phi_gamma'] 
+             + self.H.T@self.Psi['phi_phi']@self.H)
 
         self.n += 1
 
