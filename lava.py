@@ -64,30 +64,34 @@ class Lava:
         self.n += 1
 
         for i in range(self.n_y):
-            kappa = self.Psi['y_y'][i,i] + \
-                    self.Theta_bar[i,:]@self.Psi['phi_phi']@ \
-                    self.Theta_bar[i,:].T -\
-                    2*self.Theta_bar[i,:]@self.Psi['phi_y'][:,i]
-            rho = self.Psi['gamma_y'][:,i] - \
-                    self.Psi['phi_gamma'].T@self.Theta_bar[i,:].T - \
-                    self.H.T@self.Psi['phi_y'][:,i] + \
-                    self.H.T@self.Psi['phi_phi']@self.Theta_bar[i,:].T
-            eta = kappa - 2*rho.T@self.Z[i,:].T + self.Z[i,:]@\
-                    T@self.Z[i,:].T
+            kappa = (self.Psi['y_y'][i,i] 
+                     + self.Theta_bar[i,:]@self.Psi['phi_phi']
+                     @ self.Theta_bar[i,:].T 
+                     - 2*self.Theta_bar[i,:]@self.Psi['phi_y'][:,i])
+
+            rho = (self.Psi['gamma_y'][:,i] 
+                   - self.Psi['phi_gamma'].T@self.Theta_bar[i,:].T 
+                   - self.H.T@self.Psi['phi_y'][:,i] 
+                   + self.H.T@self.Psi['phi_phi']@self.Theta_bar[i,:].T)
+
+            eta = (kappa - 2*rho.T@self.Z[i,:].T 
+                   + self.Z[i,:]@T@self.Z[i,:].T)
+
             zeta = rho - T@self.Z[i,:].T
 
             for k in range(self.L):
                 for j in range(self.n_gamma):
-                    alpha = eta + T[j,j]*self.Z[i,j]**2 +\
-                            2*zeta[j]
+                    alpha = (eta + T[j,j]*self.Z[i,j]**2 
+                             + 2*zeta[j])
                     g = zeta[j] + T[j,j]*self.Z[i,j]
                     w = np.sqrt(self.Psi['gamma_gamma'][j,j]/self.n)
 
                     if alpha*w**2 < g**2 :
                         try:
-                            z_new = np.sign(g)*( np.abs(g)/T[j,j] - \
-                                            w/(T[j,j]*np.sqrt(T[j,j]-w**2))*\
-                                            np.sqrt(alpha*T[j,j]-g**2) )
+                            z_new = (np.sign(g)
+                                     *( np.abs(g)/T[j,j] 
+                                       - w/(T[j,j]*np.sqrt(T[j,j]-w**2))
+                                       * np.sqrt(alpha*T[j,j]-g**2) ))
                         except ValueError:
                             print(T[j,j]-w**2)
                             print(alpha*T[j,j]-g**2) 
@@ -155,9 +159,9 @@ class LavaLaplace(Lava):
 
         for c in range(self.M**D):
             for k in range(D):
-                P[c] *= np.sin( np.pi * j_vec[k] * \
-                               (x[k] + self.L_vec[k] )/(2*self.L_vec[k])) / \
-                                np.sqrt(self.L_vec[k])
+                P[c] *= (np.sin( np.pi * j_vec[k]  
+                               * (x[k] + self.L_vec[k] )/(2*self.L_vec[k])) 
+                         / np.sqrt(self.L_vec[k]))
 
             j_vec[0] = j_vec[0] + 1
             if D>1:
