@@ -10,8 +10,8 @@ C = np.eye(2)
 
 # Generate U
 # TODO Generate U according to Wigren's code.
-N = 100
-U = 2*np.random.randn(2,N)
+N = 10
+U = 4*np.random.randn(2,N)
 
 # Initial values
 x = np.zeros((2,N))

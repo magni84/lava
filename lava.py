@@ -10,21 +10,8 @@ class Lava:
         self.n_phi = n_phi
         self.n_gamma = n_gamma
         self.L = 10
-        self.n = 0
 
-        # Setup rices
-        self.Psi = {'phi_phi': np.zeros((n_phi, n_phi)),
-                    'gamma_gamma': np.zeros((n_gamma, n_gamma)),
-                    'y_y': np.zeros((n_y, n_y)),
-                    'phi_gamma': np.zeros((n_phi, n_gamma)),
-                    'phi_y': np.zeros((n_phi, n_y)),
-                    'gamma_y': np.zeros((n_gamma, n_y))}
-
-        self.Z = np.zeros((n_y, n_gamma))
-        self.Theta_bar = np.zeros((n_y, n_phi))
-        self.Theta = np.zeros((n_y, n_phi))
-        self.P = 100000*np.eye(n_phi)
-        self.H = np.zeros((n_phi, n_gamma))
+        self.reset_id()
         
     def reset_id(self):
         self.n = 0
@@ -90,12 +77,10 @@ class Lava:
                         try:
                             z_new = (np.sign(g)
                                      *( np.abs(g)/T[j,j] 
-                                       - w/(T[j,j]*np.sqrt(T[j,j]-w**2))
-                                       * np.sqrt(alpha*T[j,j]-g**2) ))
+                                       - w/(T[j,j]*math.sqrt(T[j,j]-w**2))
+                                       * math.sqrt(alpha*T[j,j]-g**2) ))
                         except ValueError:
-                            print(T[j,j]-w**2)
-                            print(alpha*T[j,j]-g**2) 
-                            raise ValueError
+                            z_new = 0
                     else:
                         z_new = 0
 
