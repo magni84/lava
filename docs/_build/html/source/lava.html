@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lava module &mdash; LAVA_R  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LAVA_R
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">lava module</a><ul>
+<li><a class="reference internal" href="#nonlinear-system">Nonlinear system</a></li>
+<li><a class="reference internal" href="#time-series">Time series</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LAVA_R</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>lava module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/lava.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-core">
+<span id="lava-module"></span><h1>lava module<a class="headerlink" href="#module-core" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="core.LavaBase">
+<em class="property">class </em><code class="descclassname">core.</code><code class="descname">LavaBase</code><span class="sig-paren">(</span><em>n_y</em>, <em>n_u_phi</em>, <em>n_u_gamma</em>, <em>n_u_binary</em>, <em>n_a</em>, <em>n_b</em>, <em>n_c</em>, <em>n_d</em>, <em>M</em>, <em>L</em>, <em>L_vec_u</em>, <em>L_vec_y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/core.html#LavaBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.LavaBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base LAVA model that is inherited for using different base functions for latent variable model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_y</strong> (<em>int</em>) – <span class="math notranslate nohighlight">\(n_y\)</span> - Number of outputs</p></li>
+<li><p><strong>n_u_phi</strong> (<em>int</em>) – <span class="math notranslate nohighlight">\(n_{u,\phi}\)</span> - Number of inputs to nominal model</p></li>
+<li><p><strong>n_u_gamma</strong> (<em>int</em>) – <span class="math notranslate nohighlight">\(n_{u,\phi}\)</span> - Number of continuous inputs to latent variable model</p></li>
+<li><p><strong>n_u_binary</strong> (<em>int</em>) – <span class="math notranslate nohighlight">\(n_{u,binary}\)</span> - Number of binary inputs to latent variable model</p></li>
+<li><p><strong>n_a</strong> (<em>int</em>) – <span class="math notranslate nohighlight">\(n_c\)</span> - Order of nominal model (number of output lags)</p></li>
+<li><p><strong>n_b</strong> (<em>int</em>) – <span class="math notranslate nohighlight">\(n_d\)</span> - Order of nominal model (number of input lags)</p></li>
+<li><p><strong>n_c</strong> (<em>int</em>) – <span class="math notranslate nohighlight">\(n_c\)</span> - Order of latent variable model (number of output lags)</p></li>
+<li><p><strong>n_d</strong> (<em>int</em>) – <span class="math notranslate nohighlight">\(n_d\)</span> - Order of latent variable model (number of input lags)</p></li>
+<li><p><strong>M</strong> – <span class="math notranslate nohighlight">\(M\)</span> - Resolution of basis function</p></li>
+<li><p><strong>L</strong> – <span class="math notranslate nohighlight">\(L\)</span> - Resolution of basis function</p></li>
+<li><p><strong>L_vec_u</strong> – <span class="math notranslate nohighlight">\(L_u\)</span>  - (u_max - u_min) of inputs</p></li>
+<li><p><strong>L_vec_y</strong> – <span class="math notranslate nohighlight">\(L_y\)</span>  - (y_max - y_min) of outputs</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="core.LavaBase.forecast">
+<code class="descname">forecast</code><span class="sig-paren">(</span><em>u_phi</em>, <em>u_gamma</em>, <em>u_binary</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/core.html#LavaBase.forecast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.LavaBase.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forecast for the length of the input vector.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="core.LavaBase.forecast_step">
+<code class="descname">forecast_step</code><span class="sig-paren">(</span><em>u_phi</em>, <em>u_gamma</em>, <em>u_binary</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/core.html#LavaBase.forecast_step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.LavaBase.forecast_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform one step ahead forecast.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="core.LavaBase.reset_id">
+<code class="descname">reset_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/core.html#LavaBase.reset_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.LavaBase.reset_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets identification parameters to default values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Number of steps performed</p></li>
+<li><p><strong>Psi</strong> – <span class="math notranslate nohighlight">\(\Psi\)</span> - Matrix of products of inputs and outputs <span class="math notranslate nohighlight">\(\phi\phi, \gamma\gamma, yy, \phi\gamma, \phi y, \gamma y\)</span></p></li>
+<li><p><strong>Z</strong> – <span class="math notranslate nohighlight">\(Z\)</span> - Latent parameter model matrix</p></li>
+<li><p><strong>Theta_bar</strong> – <span class="math notranslate nohighlight">\(\overline{\Theta}\)</span> - Intermediate nominal model parameter matrix</p></li>
+<li><p><strong>P</strong> – <span class="math notranslate nohighlight">\(P\)</span> - Covariance matrix for recursive least squares estimation for nominal model parameters</p></li>
+<li><p><strong>H</strong> – <span class="math notranslate nohighlight">\(H\)</span> - Regression matrix for recursive least squares estimation for nominal model parameters</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="core.LavaBase.reset_var">
+<code class="descname">reset_var</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/core.html#LavaBase.reset_var"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.LavaBase.reset_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets input variables matrices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="core.LavaBase.step">
+<code class="descname">step</code><span class="sig-paren">(</span><em>y</em>, <em>u_phi</em>, <em>u_gamma</em>, <em>u_binary</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/core.html#LavaBase.step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.LavaBase.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs one estimation step:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> – <span class="math notranslate nohighlight">\(y\)</span> - Outputs of model</p></li>
+<li><p><strong>phi</strong> – <span class="math notranslate nohighlight">\(\phi\)</span> - Inputs to nominal model</p></li>
+<li><p><strong>gamma</strong> – <span class="math notranslate nohighlight">\(\gamma\)</span> - Inputs to latent variable model</p></li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>Update vector of products of inputs and outputs <span class="math notranslate nohighlight">\(\Psi\)</span></p></li>
+<li><p>Update covariance matrix <span class="math notranslate nohighlight">\(P\)</span></p></li>
+<li><p>Update regression matrix <span class="math notranslate nohighlight">\(H\)</span></p></li>
+<li><p>Update matrix of parameters for nominal model <span class="math notranslate nohighlight">\(\overline{\Theta}\)</span></p></li>
+<li><p>Update matrix of parameters for latent variable model <span class="math notranslate nohighlight">\(Z\)</span></p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="core.LavaLaplace">
+<em class="property">class </em><code class="descclassname">core.</code><code class="descname">LavaLaplace</code><span class="sig-paren">(</span><em>n_y</em>, <em>n_u_phi</em>, <em>n_u_gamma</em>, <em>n_u_binary</em>, <em>n_a</em>, <em>n_b</em>, <em>n_c</em>, <em>n_d</em>, <em>M</em>, <em>L</em>, <em>L_vec_u</em>, <em>L_vec_y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/core.html#LavaLaplace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.LavaLaplace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.LavaBase" title="core.LavaBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.LavaBase</span></code></a></p>
+<p>LAVA model using ARX nominal model and a nonlinear Laplace base function.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="core.LavaLinearFourier">
+<em class="property">class </em><code class="descclassname">core.</code><code class="descname">LavaLinearFourier</code><span class="sig-paren">(</span><em>n_y</em>, <em>n_u_phi</em>, <em>n_u_gamma</em>, <em>n_u_binary</em>, <em>n_a</em>, <em>n_b</em>, <em>n_c</em>, <em>n_d</em>, <em>M</em>, <em>L</em>, <em>L_vec_u</em>, <em>L_vec_y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/core.html#LavaLinearFourier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.LavaLinearFourier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.LavaBase" title="core.LavaBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.LavaBase</span></code></a></p>
+<p>LAVA model using ARX nominal model and Fourier base functions.</p>
+</dd></dl>
+
+<span class="target" id="module-nonlinearSS"></span><div class="section" id="nonlinear-system">
+<h2>Nonlinear system<a class="headerlink" href="#nonlinear-system" title="Permalink to this headline">¶</a></h2>
+<p>Example of nonlinear system identified using LAVA-R and nonlinear Laplace basis functions.</p>
+</div>
+<span class="target" id="module-time_series"></span><div class="section" id="time-series">
+<h2>Time series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
+<p>Example of periodic time series identified using LAVA-R and Fourier basis function, with separate inputs to the nominal and lava model respectively.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, _
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
