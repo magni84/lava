@@ -13,5 +13,4 @@ Per Mattsson, Dave Zachariah and Petre Stoica.
 
 Installation
 ============
-The simplest way is to install with ``pip``. Just make sure to call it like ``pip install /path/to/package/``.
-Dont forget you can point to a git location! :D
+The simplest way is via ``pip install git+https://github.com/el-hult/lava.git``
