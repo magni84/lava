@@ -1,2 +1,9 @@
-matplotlib==3.0.2
+# for the library functions
 numpy==1.16.1
+
+#for visualizations in the example files
+matplotlib==3.0.2
+
+# for building documentation
+Sphinx==2.0.1
+sphinx-rtd-theme==0.4.3
