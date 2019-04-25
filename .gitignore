@@ -1,2 +1,5 @@
 # dont check in configurations for PyCharm
 .idea/
+
+# dont check in temporary files
+__pycache__
