@@ -1,7 +1,6 @@
 import numpy as np
 import math
 
-
 class LavaBase:
     """Base LAVA model that is inherited for using different base functions for latent variable model.
     """
@@ -14,8 +13,8 @@ class LavaBase:
             n_u_phi (int): :math:`n_{u,\phi}` - Number of inputs to nominal model
             n_u_gamma (int): :math:`n_{u,\phi}` - Number of continuous inputs to latent variable model
             n_u_binary (int): :math:`n_{u,binary}` - Number of binary inputs to latent variable model
-            n_a (int): :math:`n_c` - Order of nominal model (number of output lags)
-            n_b (int): :math:`n_d` - Order of nominal model (number of input lags)
+            n_a (int): :math:`n_a` - Order of nominal model (number of output lags)
+            n_b (int): :math:`n_b` - Order of nominal model (number of input lags)
             n_c (int): :math:`n_c` - Order of latent variable model (number of output lags)
             n_d (int): :math:`n_d` - Order of latent variable model (number of input lags)
             M: :math:`M` - Resolution of basis function
@@ -53,9 +52,7 @@ class LavaBase:
         """
         self.n = 0
         self.Psi_phi_phi = np.zeros((self.n_phi, self.n_phi))
-        self.Psi_gamma_gamma = np.zeros(
-            (self.n_gamma, self.n_gamma)
-        )  # , chunks=(1000,1000))
+        self.Psi_gamma_gamma = np.zeros((self.n_gamma, self.n_gamma))
         self.Psi_y_y = np.zeros((self.n_y, self.n_y))
         self.Psi_phi_gamma = np.zeros((self.n_phi, self.n_gamma))
         self.Psi_phi_y = np.zeros((self.n_phi, self.n_y))
@@ -95,7 +92,8 @@ class LavaBase:
         self.u_phi = self._shift_update(self.u_phi, u_phi)
 
         self.phi = np.concatenate(
-            [self.y_phi.flatten(), self.u_phi.flatten(), np.ones(1)], axis=0
+            [self.y_phi.flatten(), self.u_phi.flatten(), np.ones(1)]
+            , axis=0
         )
 
     def _get_basis(self):
@@ -205,7 +203,6 @@ class LavaBase:
         self._update_phi(y, u_phi)
         self._update_gamma(y, u_gamma, u_binary)
 
-    # perform one prediction step
     def forecast_step(self, u_phi, u_gamma, u_binary):
         """Perform one step ahead forecast.
         """
@@ -244,7 +241,6 @@ class LavaBase:
 
             # update phi
             self._update_phi(y_hat[..., t + 1], u_phi[..., t])
-
 
         return y_hat, Theta_phi, Z_gamma
 
