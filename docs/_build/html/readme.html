@@ -81,7 +81,11 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">LAVA-R</a></li>
+<li><a class="reference internal" href="#">LAVA-R</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#development">Development</a></li>
+</ul>
+</li>
 </ul>
 </div>
             
@@ -155,6 +159,30 @@ residual prediction error <span class="math notranslate nohighlight">\(\varepsil
 <span class="math notranslate nohighlight">\(Z\gamma(t)\)</span>.</p>
 <p>The theoretical background can be found in <a class="reference external" href="https://arxiv.org/abs/1606.04366">https://arxiv.org/abs/1606.04366</a> by
 Per Mattsson, Dave Zachariah and Petre Stoica.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The simplest way to install LAVA-R is via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">git+https://github.com/el-hult/lava.git</span></code>.
+This way <code class="docutils literal notranslate"><span class="pre">pip</span></code> will handle all the details regarding installation path and so on.</p>
+<p>Then one simply uses the library like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lava.core</span> <span class="kn">as</span> <span class="nn">lava</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">lava</span><span class="o">.</span><span class="n">LavaLaplace</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check the files in the <code class="docutils literal notranslate"><span class="pre">./examples/</span></code> folder to get an idea about how to use the model.</p>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>If you want to contribute to the code, please do so! One pointer that might be of use:</p>
+<p>To build the documentation, make sure that sphinx and its theme is properly installed.
+Then clean and build via the sphinx make files.</p>
+<p>If you are using conda for management of virtual environment, running on windows, the convenient way to do it is as below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">--</span><span class="n">file</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">cd</span> <span class="n">docs</span>
+<span class="n">make</span><span class="o">.</span><span class="n">bat</span> <span class="n">clean</span> <span class="o">&amp;&amp;</span> <span class="n">make</span><span class="o">.</span><span class="n">bat</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>If don’t use conda, you might have to deal with path variables to make sure <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> resolves nicely.</p>
+</div>
 </div>
 
 
