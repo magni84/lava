@@ -13,7 +13,7 @@ Per Mattsson, Dave Zachariah and Petre Stoica.
 
 Installation
 ++++++++++++
-The simplest way to install LAVA-R is via ``pip install git+https://github.com/el-hult/lava.git``.
+The simplest way to install LAVA-R is via ``pip install git+https://github.com/magni84/lava.git``.
 This way ``pip`` will handle all the details regarding installation path and so on.
 
 Then one simply uses the library like
